@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="urn:sap-com:document:sap:rfc:functions" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:s0="urn:sap-com:document:sap:rfc:functions" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/">
+  <types>
+    <xsd:schema targetNamespace="urn:sap-com:document:sap:rfc:functions">
+      <xsd:element name="Z_SD_INSERT_NEW_OFFERSERV_PROJ">
+        <xsd:complexType>
+          <xsd:all>
+            <xsd:element name="IS_DATA" type="s0:ZSTE_CPROJECT_OFFERSERVICETOOL"/>
+          </xsd:all>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Z_SD_INSERT_NEW_OFFERSERV_PROJ.Response">
+        <xsd:complexType>
+          <xsd:all>
+            <xsd:element name="EV_GUID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:maxLength value="10"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+          </xsd:all>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="ZSTE_CPROJECT_ADRESSDATA">
+        <xsd:sequence>
+          <xsd:element name="ADRESSTYPE" minOccurs="0" type="xsd:byte"/>
+          <xsd:element name="TITLE" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="4"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="NAME1" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="40"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="NAME2" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="40"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="STREET" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="35"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="HOUSE_NUM" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="10"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="POST_CODE" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="10"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="CITY" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="40"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="COUNTRY" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="3"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="LANGU" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="2"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="TEL_NUMBER" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="30"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="SMTP" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="241"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZSTE_CPROJECT_ADRESSDATA_TT">
+        <xsd:sequence>
+          <xsd:element name="item" minOccurs="0" maxOccurs="unbounded" type="s0:ZSTE_CPROJECT_ADRESSDATA"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZSTE_CPROJECT_APPENDIX">
+        <xsd:sequence>
+          <xsd:element name="TYPE_OF" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="20"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="DATA" minOccurs="0" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZSTE_CPROJECT_APPENDIX_TT">
+        <xsd:sequence>
+          <xsd:element name="item" minOccurs="0" maxOccurs="unbounded" type="s0:ZSTE_CPROJECT_APPENDIX"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZSTE_CPROJECT_OFFERSERVICETOOL">
+        <xsd:sequence>
+          <xsd:element name="VKORG" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="4"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="VTWEG" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="2"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="CUSTOMERID" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="10"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="ENDDATE" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="8"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="MATNR" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="18"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="PRICE" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:decimal">
+                <xsd:totalDigits value="11"/>
+                <xsd:fractionDigits value="2"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="CURRENCY" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="5"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="TYPE_OF_PROJECT" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="2"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="LIVING_SPACE" minOccurs="0" type="xsd:short"/>
+          <xsd:element name="SQUARE_MEASURE" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="6"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="NUMBER_OF_PERSON" minOccurs="0" type="xsd:byte"/>
+          <xsd:element name="POSITION_OF_HS" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="2"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="HEAT_SOURCE" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="2"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="COOLING" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="2"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="AIR_CONDITIONING" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="2"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="YEAR_OF_CONSTRU" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="2"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="CURRENTHEATING" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="3"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="CURRENTPOSITION" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="3"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="INSTALLTIMEFRAME" minOccurs="0">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="20"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="NOTE" minOccurs="0" type="xsd:string"/>
+          <xsd:element name="ADRESS_TAB" minOccurs="0" type="s0:ZSTE_CPROJECT_ADRESSDATA_TT"/>
+          <xsd:element name="APPENDIX" minOccurs="0" type="s0:ZSTE_CPROJECT_APPENDIX_TT"/>
+          <xsd:element name="RENOVATION_TAB" minOccurs="0" type="s0:ZSTE_CPROJECT_RENOVATION_TT"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZSTE_CPROJECT_RENOVATION">
+        <xsd:sequence>
+          <xsd:element name="DESCRIPTION" minOccurs="0" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZSTE_CPROJECT_RENOVATION_TT">
+        <xsd:sequence>
+          <xsd:element name="item" minOccurs="0" maxOccurs="unbounded" type="s0:ZSTE_CPROJECT_RENOVATION"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="Z_SD_INSERT_NEW_OFFERSERV_PROJInput">
+    <part name="parameters" element="s0:Z_SD_INSERT_NEW_OFFERSERV_PROJ"/>
+  </message>
+  <message name="Z_SD_INSERT_NEW_OFFERSERV_PROJOutput">
+    <part name="parameters" element="s0:Z_SD_INSERT_NEW_OFFERSERV_PROJ.Response"/>
+  </message>
+  <portType name="Z_SD_INSERT_NEW_OFFERSERV_PROJPortType">
+    <operation name="Z_SD_INSERT_NEW_OFFERSERV_PROJ">
+      <input message="s0:Z_SD_INSERT_NEW_OFFERSERV_PROJInput"/>
+      <output message="s0:Z_SD_INSERT_NEW_OFFERSERV_PROJOutput"/>
+    </operation>
+  </portType>
+  <binding name="Z_SD_INSERT_NEW_OFFERSERV_PROJBinding" type="s0:Z_SD_INSERT_NEW_OFFERSERV_PROJPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Z_SD_INSERT_NEW_OFFERSERV_PROJ">
+      <soap:operation soapAction="http://www.sap.com/Z_SD_INSERT_NEW_OFFERSERV_PROJ"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="Z_SD_INSERT_NEW_OFFERSERV_PROJService">
+    <documentation>SAP Service Z_SD_INSERT_NEW_OFFERSERV_PROJ via SOAP</documentation>
+    <port name="Z_SD_INSERT_NEW_OFFERSERV_PROJPortType" binding="s0:Z_SD_INSERT_NEW_OFFERSERV_PROJBinding">
+      <soap:address location="http://D02.stiebel-eltron.com:8000/sap/bc/soap/rfc"/>
+    </port>
+  </service>
+</definitions>
