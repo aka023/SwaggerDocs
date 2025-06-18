@@ -14,10 +14,19 @@
     "url": "https://SE2.stiebel-eltron.com:8443"    
 
 paths:
+  /zste/zste_weblogin/system:
+    get:
+      description: 'Check system availibity'
+      responses:
+        200:
+          description: OK
+        400: 
+          description: bad request
   /zste/zste_weblogin/:
     parameters:
     - $ref: '#/components/parameters/Salesorg'    
     - $ref: '#/components/parameters/Distrchnl'
+    - $ref: '#/components/parameters/x-csrf-token'
     post:
       summary: create new login without existing customer
       tags:
@@ -52,6 +61,7 @@ paths:
     - $ref: '#/components/parameters/Customer'
     - $ref: '#/components/parameters/Salesorg'    
     - $ref: '#/components/parameters/Distrchnl'
+    - $ref: '#/components/parameters/x-csrf-token'
     post:
       summary: create new login for existing customer
       tags:
@@ -111,14 +121,7 @@ paths:
             application/json:
               schema: 
                 $ref: '#/components/schemas/badrsp'
-  /zste/system:
-    get:
-      description: 'Check system availibity'
-      responses:
-        200:
-          description: OK
-        400: 
-          description: bad request
+
 components:
   "securitySchemes":
     "basicAuth":
@@ -160,7 +163,14 @@ components:
           type: string
           maxLength: 10
       description: Contact Person  
-      example: 0001234567       
+      example: 0001234567     
+    x-csrf-token:
+      name: x-csrf-token
+      required: true
+      in: header
+      description: x-csrf-token
+      schema:
+        type: string  
   schemas:
     postrspcust:
       type: object
@@ -264,7 +274,7 @@ components:
           companyname:
             type: string
             maxLength: 70
-            example: Musterman GmbH Sanit√§rfachbetrieb
+            example: Musterman GmbH Sanit‰rfachbetrieb
           companynameptone:
             type: string
             maxLength: 40
@@ -272,7 +282,7 @@ components:
           companynamepttwo:
             type: string
             maxLength: 40      
-            example: Sanit√§rfachbetrieb
+            example: Sanit‰rfachbetrieb
           city:
             type: string
             maxLength: 40
@@ -401,8 +411,8 @@ components:
                example: "01"
              guid:
                type: string
-               maxLength: 10
-               example: "1234567890"
+               maxLength: 36
+               example: "02e7243a-b3fe-4450-8e1a-6a5356ca2db7"
              contactperson:
                $ref: '#/components/schemas/PersonPost'  
     requestPostBody:
@@ -414,7 +424,8 @@ components:
                example: "01"
              guid:
                type: string
-               example: "1234567890"
+               maxLength: 36
+               example: "02e7243a-b3fe-4450-8e1a-6a5356ca2db7"
              customerdata:
                $ref: '#/components/schemas/CustPost'
              contactperson:
@@ -499,7 +510,7 @@ components:
               street:
                 type: string
                 maxLength: 60
-                example: "Musterstra√üe"
+                example: "Musterstraﬂe"
               housenumone:
                 type: string
                 maxLength: 10
